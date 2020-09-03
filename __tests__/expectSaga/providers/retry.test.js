@@ -64,7 +64,9 @@ test('calls `fn` 3 times if it crashes and done', async () => {
     yield take('START');
     try {
       yield retry(3, 500, fooSaga);
-    } catch (e) {}
+    } catch (e) {
+      // Just ignore it
+    }
   }
 
   const result = await expectSaga(saga)
@@ -98,7 +100,9 @@ test('calls `fn` 2 times if it crashes and puts `FINISH` action', async () => {
     yield take('START');
     try {
       yield retry(3, 500, fooSaga);
-    } catch (e) {}
+    } catch (e) {
+      // Just ignore it
+    }
   }
 
   const result = await expectSaga(saga)
